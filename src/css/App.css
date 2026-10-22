@@ -1,0 +1,108 @@
+:root {
+  --bg: #071014;
+  --panel: #0c171b;
+  --text: #f4f6f8;
+  --muted: #93a1a4;
+  --lime: #b5f34d;
+  --line: rgba(220, 236, 233, 0.13);
+  --mono: 'DM Mono', monospace;
+  font-family: 'Manrope', sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; min-width: 320px; }
+a { color: inherit; text-decoration: none; }
+main { overflow: hidden; }
+h1, h2, h3, p { margin-top: 0; }
+::selection { background: var(--lime); color: #071014; }
+
+/* Header and footer stay in App.jsx and use this shared stylesheet. */
+.topbar { height: 82px; padding: 0 7.3%; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--line); position: relative; z-index: 5; background: #071014; }
+.brand { display: flex; align-items: center; gap: 11px; }
+.brand-logo { display: block; width: 230px; height: 54px; object-fit: cover; object-position: center 54%; background: #fff; }
+.topbar nav { display: flex; gap: 38px; margin-left: auto; margin-right: 42px; }
+.topbar nav a, .top-cta { font-size: 11px; color: #b4bec0; transition: color .2s; }
+.topbar nav a:hover, .top-cta:hover { color: var(--lime); }
+.top-cta { border: 1px solid #435046; padding: 12px 15px; color: #e8eeea; }
+.top-cta span { color: var(--lime); margin-left: 13px; }
+
+/* Shared layout for the three service component cards. */
+.services-section { background: #f1f2ec; color: #111a1b; padding: 92px 10.3% 108px; }
+.section-heading { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 48px; }
+.section-heading h2 { font-size: 42px; line-height: 1.15; letter-spacing: -2px; margin: 18px 0 0; font-weight: 600; }
+.section-heading h2 em { font-family: 'Playfair Display', serif; color: #668b2e; font-weight: 500; letter-spacing: -2px; }
+.section-heading > p { width: 340px; color: #66716e; font-size: 12px; line-height: 1.9; margin-bottom: 4px; }
+.dark-eyebrow { color: #77827d; }
+.dark-eyebrow::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: #688d2e; }
+.service-grid { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid #d6dad1; }
+.service-card { min-height: 340px; padding: 25px 25px 22px; position: relative; border-right: 1px solid #d6dad1; transition: background .3s, transform .3s; }
+.service-card:last-child { border-right: 0; }
+.service-card:hover { background: #fff; transform: translateY(-5px); }
+.card-top { display: flex; justify-content: space-between; align-items: center; }
+.service-number { font: 10px var(--mono); color: #829080; }
+.service-icon { font-size: 23px; }
+.service-card h3 { font-size: 19px; letter-spacing: -.65px; margin: 31px 0 10px; }
+.service-card > p { font-size: 11px; line-height: 1.8; color: #717a76; min-height: 58px; }
+.service-card ul { padding: 0; margin: 17px 0 24px; list-style: none; display: grid; gap: 8px; }
+.service-card li { font-size: 10px; color: #495552; display: flex; gap: 9px; }
+.service-card li span { color: #779b40; }
+.card-link { position: absolute; bottom: 22px; left: 25px; right: 25px; padding-top: 13px; border-top: 1px solid #e1e4dc; font: 10px var(--mono); display: flex; justify-content: space-between; color: #26312d; }
+.card-link span { color: #739739; }
+
+.site-footer { background: #091216; padding: 60px 10.3% 0; }
+.footer-main { display: grid; grid-template-columns: 1fr 1.2fr 1fr; align-items: start; padding-bottom: 55px; }
+.footer-brand { align-self: start; }
+.footer-message .eyebrow { font-size: 9px; }
+.footer-message h2 { font-size: 35px; line-height: 1.22; letter-spacing: -1.4px; margin: 20px 0 0; font-weight: 500; }
+.footer-contact { display: grid; justify-items: start; gap: 13px; }
+.footer-label { font: 9px var(--mono); letter-spacing: 1.6px; color: #718080; margin-bottom: 5px; }
+.footer-contact a { font-size: 12px; color: #e5ebe7; }
+.footer-contact a span { color: var(--lime); margin-left: 10px; }
+.footer-contact .address { font-size: 10px; line-height: 1.8; color: #84918f; margin-top: 4px; }
+.footer-bottom { height: 53px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; color: #687679; font: 8px var(--mono); letter-spacing: .5px; }
+.footer-bottom a { color: #a0adab; }
+
+@media (max-width: 900px) {
+  .topbar { padding: 0 5%; }
+  .topbar nav { gap: 20px; margin-right: 22px; }
+  .services-section { padding: 75px 7%; }
+  .service-card { padding: 20px 17px; }
+  .card-link { left: 17px; right: 17px; }
+  .site-footer { padding-left: 7%; padding-right: 7%; }
+  .footer-main { grid-template-columns: 1fr 1.2fr 1.2fr; }
+}
+
+@media (max-width: 650px) {
+  .topbar { height: 70px; }
+  .topbar nav { display: none; }
+  .brand-logo { width: 190px; height: 47px; }
+  .top-cta { font-size: 10px; padding: 10px; }
+  .services-section { padding: 66px 7% 72px; }
+  .section-heading { display: block; margin-bottom: 32px; }
+  .section-heading h2 { font-size: 37px; }
+  .section-heading > p { margin-top: 18px; width: auto; }
+  .service-grid { grid-template-columns: 1fr; }
+  .service-card { min-height: 310px; border-right: 0; border-bottom: 1px solid #d6dad1; padding: 22px; }
+  .service-card:last-child { border-bottom: 0; }
+  .service-card h3 { margin-top: 24px; }
+  .card-link { left: 22px; right: 22px; }
+  .site-footer { padding: 48px 7% 0; }
+  .footer-main { grid-template-columns: 1fr 1fr; gap: 38px 20px; }
+  .footer-brand { grid-column: 1 / -1; }
+  .footer-brand .brand-logo { width: 190px; height: 47px; }
+  .footer-message h2 { font-size: 28px; }
+  .footer-contact { gap: 11px; }
+  .footer-bottom { height: auto; min-height: 65px; gap: 10px; flex-wrap: wrap; padding: 14px 0; font-size: 7px; }
+  .footer-bottom span:nth-child(2) { display: none; }
+}
+
+.brand-mark{font-weight:800;font-size:25px;letter-spacing:-3px;color:var(--lime);border:1px solid rgba(181,243,77,.55);height:36px;width:38px;display:grid;place-items:center;line-height:1}.brand-mark span{font-size:14px;letter-spacing:-2px;margin-left:-4px}.brand-name{display:grid;font-size:13px;font-weight:800;letter-spacing:2px;line-height:1.2}.brand-name span{font-family:var(--mono);font-size:8px;font-weight:400;letter-spacing:2.1px;color:#8b999c;margin-top:4px}.brand-logo{display:none}
+.service-card{display:block;color:inherit;text-decoration:none}
+.service-card:focus-visible{outline:3px solid #789d37;outline-offset:4px}
